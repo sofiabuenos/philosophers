@@ -24,7 +24,7 @@ OBJD = obj/
 SRCS =	$(SRCD)error_handling.c \
 		$(SRCD)main.c \
 		$(SRCD)utils.c \
-
+		$(SRCD)init.c \
 
 
 OBJS = $(patsubst $(SRCD)%.c, $(OBJD)%.o, $(SRCS))

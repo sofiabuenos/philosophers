@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:22:31 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/08/22 15:16:40 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/08/28 15:36:55 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,9 @@ int	is_number(char *str)
 			return (0);
 	}
 	return (1);
+}
+
+size_t	get_time()
+{
+	
 }

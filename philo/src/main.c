@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:13:59 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/08/22 15:10:04 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/08/28 15:16:02 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int	check_param(char **av)
 
 int	main(int ac, char **av)
 {
+	t_manager	manager;
+	t_philo		philo;
+
 	if (ac != 5 && ac != 6)
 		ft_exit("Wrong number of arguments");
 	if (!check_param(av))
