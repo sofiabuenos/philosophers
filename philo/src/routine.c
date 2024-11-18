@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:07:47 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/07 17:10:23 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/18 15:58:59 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	think(t_philo *philo)
 
 	t_think = (philo->manager->time_to_eat * 2) - philo->manager->time_to_sleep;
 	print_msg(philo, THINK);
-	if (philo->manager->nbr_must_eat % 2 != 0)
+	if (philo->manager->nbr_philo % 2 != 0)
 		ft_usleep(t_think * 0.42);
 }
 

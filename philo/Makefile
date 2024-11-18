@@ -36,6 +36,9 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INC) $(OBJS) -o $(NAME)
 	echo "$(GREEN)All files compiled!$(RESET)"
 
+clean: 
+	$(RM) $(OBJS)
+
 fclean: clean
 	$(RM) $(NAME)
 	echo "$(RED)Deleted: $(RESET) $(GREEN)$(NAME)$(RESET)"

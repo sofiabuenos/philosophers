@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:12:57 by sbueno-s          #+#    #+#             */
-/*   Updated: 2024/09/04 12:23:00 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/18 16:56:54 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,19 @@
 # include <sys/time.h>
 # include <stdbool.h>
 
-# define EAT "is eating 🥘\n"
-# define SLEEP "is sleeping 😴\n"
-# define THINK "is thinking 🤔\n"
-# define FORK "has taken a fork 🍴\n"
-# define DIED "died 🪦😵\n"
-# define FULL "ALL PHILOSOPHERS ARE FULL! 😋\n"
+// # define EAT "is eating 🥘\n"
+// # define SLEEP "is sleeping 😴\n"
+// # define THINK "is thinking 🤔\n"
+// # define FORK "has taken a fork 🍴\n"
+// # define DIED "died 🪦😵\n"
+// # define FULL "ALL PHILOSOPHERS ARE FULL! 😋\n"
 
-
+# define EAT "is eating\n"
+# define SLEEP "is sleeping\n"
+# define THINK "is thinking\n"
+# define FORK "has taken a fork\n"
+# define DIED "died\n"
+# define FULL "ALL PHILOSOPHERS ARE FULL!\n"
 
 typedef struct s_philo
 {
