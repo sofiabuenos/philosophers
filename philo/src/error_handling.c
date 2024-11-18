@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:02:40 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/03 11:29:42 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/18 17:45:57 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,4 @@ void	mutex_destroy(t_manager *manager)
 		pthread_mutex_destroy(&manager->forks[i]);
 }
 
+void	free_structs()

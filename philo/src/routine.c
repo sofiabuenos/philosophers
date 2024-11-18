@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:07:47 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/11/18 15:58:59 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/18 17:22:02 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,20 @@ void	print_msg(t_philo *philos, char *msg)
 
 void	eat(t_philo	*philos)
 {
-	pthread_mutex_lock(philos->r_fork);
-	print_msg(philos, FORK);
-	pthread_mutex_lock(philos->l_fork);
-	print_msg(philos, FORK);
+	if (philos->id % 2 == 0)
+	{
+		pthread_mutex_lock(philos->r_fork);
+		print_msg(philos, FORK);
+		pthread_mutex_lock(philos->l_fork);
+		print_msg(philos, FORK);
+	}
+	else
+	{
+		pthread_mutex_lock(philos->l_fork);
+		print_msg(philos, FORK);
+		pthread_mutex_lock(philos->r_fork);
+		print_msg(philos, FORK);
+	}
 	pthread_mutex_lock(philos->meal_lock);
 	philos->nbr_meals_eaten++;
 	philos->is_eating = true;

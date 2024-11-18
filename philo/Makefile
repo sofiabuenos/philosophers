@@ -6,7 +6,7 @@ GREEN 	= \033[1;32m
 #PROGRAM NAME | COMPILER | FLAGS 
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -pthread -fsanitize=thread #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -pthread -g -fsanitize=address #-fsanitize=thread
 RM = rm -fr
 
 #PATHS
@@ -26,7 +26,7 @@ SRCS =	$(SRCD)error_handling.c \
 
 OBJS = $(patsubst $(SRCD)%.c, $(OBJD)%.o, $(SRCS))
 $(OBJD)%.o: $(SRCD)%.c
-	@mkdir -p $(@D)
+	@mkdir -p $(OBJD)
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 #RULES
@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INC) $(OBJS) -o $(NAME)
 	echo "$(GREEN)All files compiled!$(RESET)"
 
-clean: 
+clean:
 	$(RM) $(OBJS)
 
 fclean: clean
