@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:13:59 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/11/19 18:03:11 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/19 19:16:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,13 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	if (init_structures(&manager, philos, ac, av))
-		return (free_struct(&manager, philos), EXIT_FAILURE);
-	if (create_threads(&manager, philos))
-		return (free_struct(&manager, philos), EXIT_FAILURE);
-	free_struct(&manager, philos);
+		return (free_struct(philos), EXIT_FAILURE);
+	if (manager.nbr_philo == 1)
+		one_philo(&manager, philos);
+	else
+		if (create_threads(&manager, philos))
+			return (free_struct( philos), EXIT_FAILURE);
+	free_struct(philos);
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:12:57 by sbueno-s          #+#    #+#             */
-/*   Updated: 2024/11/19 18:02:34 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/19 19:09:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_manager
 
 /*error_handling*/
 void	mutex_destroy(t_manager *manager);
-void	free_struct(t_manager *manager, t_philo *philos);
+void	free_struct(t_philo *philos);
 
 /*utils*/
 size_t	get_time(void);
@@ -91,6 +91,7 @@ int		create_threads(t_manager *manager, t_philo *philos);
 int		no_philos_dead(t_philo *philos);
 int		check_death(t_philo *philos);
 int		check_full(t_philo *philos);
+void	one_philo(t_manager *manager, t_philo *philo);
 
 /*routine*/
 void	print_msg(t_philo *philos, char *msg);

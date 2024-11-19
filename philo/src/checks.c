@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:41:04 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/07 14:33:49 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/19 19:16:29 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,12 @@ int	check_death(t_philo *philos)
 		}
 	}
 	return (0);
+}
+void	one_philo(t_manager *manager, t_philo *philo)
+{
+	pthread_mutex_lock(philo->r_fork);
+	print_msg(philo, FORK);
+	ft_usleep(manager->time_to_die);
+	print_msg(philo, DIED);
+	pthread_mutex_unlock(philo->r_fork);
 }

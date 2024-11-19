@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:59:52 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/07 14:28:57 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/19 18:55:07 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int	init_structures(t_manager *manager, t_philo *philos, int ac, char **av)
 		return (EXIT_FAILURE);
 	if (init_philos(manager, philos))
 		return (EXIT_FAILURE);
-	print_structures(manager, philos);
+	//print_structures(manager, philos);
 	return (0);
 }
