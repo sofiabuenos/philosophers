@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:13:59 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/04 12:19:40 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/19 18:03:11 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	print_structures(t_manager *manager, t_philo *philos)
 	}
 }
 
+/*checks if the parameters are positive numbers*/
 int	check_param(char **av)
 {
 	if (atoi(av[1]) <= 0 || !is_number(av[1]))
@@ -76,7 +77,7 @@ int	main(int ac, char **av)
 
 	if (ac != 5 && ac != 6)
 	{
-		ft_putstr_fd(2, "Wrong number of arguments\n");
+		ft_putstr_fd(2, "Wrong number of arguments, must have 5 or 6\n");
 		return (EXIT_FAILURE);
 	}
 	if (check_param(av))
@@ -88,9 +89,10 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	if (init_structures(&manager, philos, ac, av))
-		return (EXIT_FAILURE);
+		return (free_struct(&manager, philos), EXIT_FAILURE);
 	if (create_threads(&manager, philos))
-		return (EXIT_FAILURE);
+		return (free_struct(&manager, philos), EXIT_FAILURE);
+	free_struct(&manager, philos);
 	return (0);
 }
 

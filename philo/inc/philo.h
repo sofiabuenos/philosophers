@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:12:57 by sbueno-s          #+#    #+#             */
-/*   Updated: 2024/11/18 16:56:54 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/11/19 18:02:34 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,22 @@
 # include <sys/time.h>
 # include <stdbool.h>
 
-// # define EAT "is eating 🥘\n"
-// # define SLEEP "is sleeping 😴\n"
-// # define THINK "is thinking 🤔\n"
-// # define FORK "has taken a fork 🍴\n"
-// # define DIED "died 🪦😵\n"
-// # define FULL "ALL PHILOSOPHERS ARE FULL! 😋\n"
+# define EAT "is eating 🥘\n"
+# define SLEEP "is sleeping 😴\n"
+# define THINK "is thinking 🤔\n"
+# define FORK "has taken a fork 🍴\n"
+# define DIED "died 🪦😵\n"
+# define FULL "ALL PHILOSOPHERS ARE FULL! 😋\n"
 
-# define EAT "is eating\n"
-# define SLEEP "is sleeping\n"
-# define THINK "is thinking\n"
-# define FORK "has taken a fork\n"
-# define DIED "died\n"
-# define FULL "ALL PHILOSOPHERS ARE FULL!\n"
+// # define EAT "is eating\n"
+// # define SLEEP "is sleeping\n"
+// # define THINK "is thinking\n"
+// # define FORK "has taken a fork\n"
+// # define DIED "died\n"
+// # define FULL "ALL PHILOSOPHERS ARE FULL!\n"
 
+/*Struct philo represents each philosopher and saves
+**operational info and permitions*/
 typedef struct s_philo
 {
 	int					id;
@@ -50,6 +52,8 @@ typedef struct s_philo
 	struct s_manager	*manager;
 }						t_philo;
 
+/*the manager struct saves the general information of the program
+ *including the given parameters, starting time, life status and mutexes*/
 typedef struct s_manager
 {
 	int				nbr_philo;
@@ -68,6 +72,7 @@ typedef struct s_manager
 
 /*error_handling*/
 void	mutex_destroy(t_manager *manager);
+void	free_struct(t_manager *manager, t_philo *philos);
 
 /*utils*/
 size_t	get_time(void);
