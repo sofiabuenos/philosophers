@@ -6,7 +6,7 @@
 /*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:22:31 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/08/22 15:16:40 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2024/09/03 15:28:40 by sofiabueno       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ size_t	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+
+void	ft_putstr_fd(int fd, char *s)
+{
+	size_t	len;
+
+	len = ft_strlen(s);
+	write(fd, s, len);
 }
 
 long	ft_atoi(char *nbr)
@@ -59,4 +68,22 @@ int	is_number(char *str)
 			return (0);
 	}
 	return (1);
+}
+
+size_t	get_time(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+int	ft_usleep(size_t milliseconds)
+{
+	size_t	start;
+
+	start = get_time();
+	while ((get_time() - start) < milliseconds)
+		usleep(500);
+	return (0);
 }
