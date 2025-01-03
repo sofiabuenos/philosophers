@@ -6,21 +6,13 @@
 /*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:07:47 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/11/18 17:22:02 by sbueno-s         ###   ########.fr       */
+/*   Updated: 2025/01/03 19:30:52 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	print_msg(t_philo *philos, char *msg)
-{
-	pthread_mutex_lock(philos->print_lock);
-	if (!no_philos_dead(philos))
-		printf("%zu %d %s", get_time() - philos->manager->start, philos->id, msg);
-	pthread_mutex_unlock(philos->print_lock);
-}
-
-void	eat(t_philo	*philos)
+void	take_forks(t_philo *philos)
 {
 	if (philos->id % 2 == 0)
 	{
@@ -36,13 +28,18 @@ void	eat(t_philo	*philos)
 		pthread_mutex_lock(philos->r_fork);
 		print_msg(philos, FORK);
 	}
+}
+
+void	eat(t_philo	*philos)
+{
+	take_forks(philos);
 	pthread_mutex_lock(philos->meal_lock);
 	philos->nbr_meals_eaten++;
 	philos->is_eating = true;
 	philos->last_meal = get_time();
 	pthread_mutex_unlock(philos->meal_lock);
 	print_msg(philos, EAT);
-	ft_usleep(philos->manager->time_to_eat);
+	ft_usleep(philos, philos->manager->time_to_eat);
 	pthread_mutex_lock(philos->meal_lock);
 	philos->is_eating = false;
 	pthread_mutex_unlock(philos->meal_lock);
@@ -53,7 +50,7 @@ void	eat(t_philo	*philos)
 void	nap(t_philo *philos)
 {
 	print_msg(philos, SLEEP);
-	ft_usleep(philos->manager->time_to_sleep);
+	ft_usleep(philos, philos->manager->time_to_sleep);
 }
 
 void	think(t_philo *philo)
@@ -63,34 +60,17 @@ void	think(t_philo *philo)
 	t_think = (philo->manager->time_to_eat * 2) - philo->manager->time_to_sleep;
 	print_msg(philo, THINK);
 	if (philo->manager->nbr_philo % 2 != 0)
-		ft_usleep(t_think * 0.42);
+		ft_usleep(philo, t_think * 0.42);
 }
 
-// void	think(t_philo *philos)
-// {
-// 	size_t	free_time;
-// 	size_t	think_time;
-// 	size_t	min_think_time;
-
-// 	min_think_time = 420;
-// 	free_time = (philos->manager->time_to_die - philos->manager->time_to_eat
-// 			- philos->manager->time_to_sleep);
-// 	if (free_time <= 0)
-// 		think_time = min_think_time;
-// 	else
-// 		think_time = free_time / 2;
-// 	print_msg(philos, THINK);
-// 	ft_usleep(think_time);
-// }
-
+/*if nbr of philos are even -> odds eat first*/
 void	*philos_routine(void *ptr)
 {
 	t_philo	*philos;
 
 	philos = (t_philo *)ptr;
-
 	if (philos->id % 2 == 0 && philos->manager->nbr_philo % 2 == 0)
-		ft_usleep(1);
+		ft_usleep(philos, 1);
 	else if (philos->id % 2 != 0 && philos->manager->nbr_philo % 2 != 0)
 		think(philos);
 	while (!no_philos_dead(philos))

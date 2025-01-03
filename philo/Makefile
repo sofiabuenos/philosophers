@@ -18,10 +18,12 @@ OBJD = obj/
 SRCS =	$(SRCD)error_handling.c \
 		$(SRCD)main.c \
 		$(SRCD)utils.c \
+		$(SRCD)utils2.c \
 		$(SRCD)init.c \
 		$(SRCD)threads.c \
 		$(SRCD)routine.c \
 		$(SRCD)checks.c \
+		$(SRCD)print_structs.c \
 
 OBJS = $(patsubst $(SRCD)%.c, $(OBJD)%.o, $(SRCS))
 

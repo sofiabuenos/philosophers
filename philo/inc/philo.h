@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:12:57 by sbueno-s          #+#    #+#             */
-/*   Updated: 2024/11/19 19:09:25 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/03 19:28:33 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@
 # define DIED "died 🪦😵\n"
 # define FULL "ALL PHILOSOPHERS ARE FULL! 😋\n"
 
-// # define EAT "is eating\n"
-// # define SLEEP "is sleeping\n"
-// # define THINK "is thinking\n"
-// # define FORK "has taken a fork\n"
-// # define DIED "died\n"
-// # define FULL "ALL PHILOSOPHERS ARE FULL!\n"
-
 /*Struct philo represents each philosopher and saves
 **operational info and permitions*/
 typedef struct s_philo
@@ -52,7 +45,7 @@ typedef struct s_philo
 	struct s_manager	*manager;
 }						t_philo;
 
-/*the manager struct saves the general information of the program
+/*manager struct saves the general information of the program
  *including the given parameters, starting time, life status and mutexes*/
 typedef struct s_manager
 {
@@ -79,7 +72,7 @@ size_t	get_time(void);
 long	ft_atoi(char *nbr);
 void	ft_putstr_fd(int fd, char *s);
 int		is_number(char *str);
-int		ft_usleep(size_t milliseconds);
+int		ft_usleep(t_philo *philos, size_t milliseconds);
 
 /*init*/
 int		init_structures(t_manager *manager, t_philo *philo, int ac, char **av);

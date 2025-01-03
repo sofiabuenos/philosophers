@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:22:31 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/03 15:28:40 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2025/01/03 19:25:36 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
-
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-
-void	ft_putstr_fd(int fd, char *s)
-{
-	size_t	len;
-
-	len = ft_strlen(s);
-	write(fd, s, len);
-}
 
 long	ft_atoi(char *nbr)
 {
@@ -78,12 +59,12 @@ size_t	get_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int	ft_usleep(size_t milliseconds)
+int	ft_usleep(t_philo *philos, size_t milliseconds)
 {
 	size_t	start;
 
 	start = get_time();
-	while ((get_time() - start) < milliseconds)
+	while ((get_time() - start) < milliseconds && !no_philos_dead(philos))
 		usleep(500);
 	return (0);
 }

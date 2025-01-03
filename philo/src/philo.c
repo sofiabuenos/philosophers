@@ -6,7 +6,7 @@
 /*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:33:19 by sbueno-s          #+#    #+#             */
-/*   Updated: 2024/08/23 15:46:43 by sbueno-s         ###   ########.fr       */
+/*   Updated: 2025/01/03 19:16:46 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ int	check_param(char **av)
 		return (write(2, "Wrong num_of_times_philosophers_must_eat\n", 42), 1);
 	return (0);
 }
-void	init_philo

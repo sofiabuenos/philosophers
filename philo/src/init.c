@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:59:52 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/11/19 18:55:07 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/03 19:17:40 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,10 @@ void	init_manager(t_manager *manager, t_philo *philos, int ac, char **av)
 
 int	init_structures(t_manager *manager, t_philo *philos, int ac, char **av)
 {
-
 	init_manager(manager, philos, ac, av);
 	if (init_forks(manager))
 		return (EXIT_FAILURE);
 	if (init_philos(manager, philos))
 		return (EXIT_FAILURE);
-	//print_structures(manager, philos);
 	return (0);
 }

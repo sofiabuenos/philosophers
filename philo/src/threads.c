@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sofiabueno <sofiabueno@student.42.fr>      +#+  +:+       +#+        */
+/*   By: sbueno-s <sbueno-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 15:38:47 by sofiabueno        #+#    #+#             */
-/*   Updated: 2024/09/07 13:48:26 by sofiabueno       ###   ########.fr       */
+/*   Updated: 2025/01/03 19:23:33 by sbueno-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	create_threads(t_manager *manager, t_philo *philos)
 	i = -1;
 	while (++i < manager->nbr_philo)
 	{
-		if (pthread_create(&philos[i].thread, NULL, &philos_routine, &philos[i]))
+		if (pthread_create(&philos[i].thread, NULL,
+				&philos_routine, &philos[i]))
 			mutex_destroy(manager);
 	}
 	if (pthread_join(checker, NULL))
